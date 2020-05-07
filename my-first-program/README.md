@@ -29,16 +29,18 @@ Now let's take a look at the supplied COBOL application.  A COBOL application is
 1. Procedure Division - this is where we write our COBOL statements.
 
 Now that we have seen the different divisions in a COBOl application, let's take a closer look at some of the statements in our code.  In COBOL, variables are defined with a picture clause, which can be abbreviated as PIC.  Here is a copy of our first variable definition, starting on line 37:<br>
-```       SD  FXLIST-WORK.
+```
+       SD  FXLIST-WORK.
        01  FX-REC.
            05 FX-NAME-W      PIC X(50).
            05 FX-PRICE-W     PIC $$,$$$,$$9.99.
            05 FILLER PIC X(17).
 ```
-<br>
 First we have SD which declares a Sort File Description Entry named `FXLIST-WORK`.
 
 `FX-REC` defines the record, which is made up of the three parts that appear on the following three lines with level 05 descriptors.
+
+Part of the power of COBOL's ability to work with data lies in its picture statements.  For an exhaustive list of ways you can declare data, visit the Enterprise COBOL Language Refer ****LINK NEEDED****.  Our first record field is name `FX-NAME-W` and it is declared to hold 50 alphanumeric characters.  That is followed by `FX-PRICE-W` which is a currency field, so its declaration is set up to be proceeded by a dollar sign, have comma thousands separators, and have two positions after the decimal place.  Finally, the record is filled with 17 blank characters called `FILLER`.
 
 ## Instructions
 1. Copy the supplied files to your z/OS system<br>
