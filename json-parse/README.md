@@ -58,3 +58,8 @@ After you have gotten your COBOL application working, feel free to modify the co
 [IBM Enterprise COBOL Knowledge Center](https://www.ibm.com/support/knowledgecenter/SS6SG3_6.3.0/welcome.html)
 
 [IBM Developer COBOL resource hub](https://developer.ibm.com/technologies/cobol/)
+
+## License
+This code pattern is licensed under the Apache License, Version 2. Separate third-party code objects invoked within this code pattern are licensed by their respective providers pursuant to their own separate licenses. Contributions are subject to the [Developer Certificate of Origin, Version 1.1](https://developercertificate.org/) and the [Apache License, Version 2](https://www.apache.org/licenses/LICENSE-2.0.txt).
+
+[Apache License FAQ](https://www.apache.org/foundation/license-faq.html#WhatDoesItMEAN)
