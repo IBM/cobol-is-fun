@@ -33,7 +33,9 @@ Now let's take a look at the supplied COBOL application.  A COBOL application is
 There are many ways to transfer the files from this Git repo to your z/OS system. You could do this directly to z/OS using a Git client running there, or you can use your PC as an intermediate between the Git repo and your z/OS system.
 
 2. Edit the supplied JCL to meet your environment<br>
-The jobs supplied in this Git repo work on my system, but they might not work on your system unless you modify them.  Things you'll need to customize:
+The jobs supplied in this Git repo work on my system, but they might not work on your system unless you modify them.
+<br> <br>
+Things you'll need to customize:
 - Data set and volume names
 - JOB card definition
 - High-level qualifiers in data definitions
@@ -42,7 +44,7 @@ The jobs supplied in this Git repo work on my system, but they might not work on
 abc
 
 You should see the following in your output file from a successful run:
-<img src="images/output.png" />
+![Output](images/output.png)
 
 ## Related Links
 - [My First COBOL Application video](https://developer.ibm.com/technologies/cobol/videos/intro-to-cobol-write-your-first-program)
