@@ -21,11 +21,11 @@ It looks like this:<br>
 It should take about 30 minutes to complete this tutorial.
 
 ## Steps
-1. Copy the supplied files to your z/OS system.
+1. Copy the supplied files to your z/OS system.<br>
 There are many ways to transfer the files from this Git repo to your z/OS system.  You could do this directly to z/OS using a Git client running there, or you can use your PC as an intermediate between the Git repo and your z/OS system.
 
-2. Edit the supplied JCL to meet your environment.
-You'll need to update each JCL job for your environment.
+2. Edit the supplied JCL to meet your environment.<br>
+The jobs supplied in this Git repo work on my system, but they might not work on your system unless you modify them.  You'll need to update each JCL job for your environment.
 
 Things you'll need to customize:
 - Data set and volume names
