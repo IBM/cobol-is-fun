@@ -22,6 +22,8 @@ JCL might seem scary at first but it's not really all that complicated.  A JCL j
 There's a bunch of other DD statements coded in our compile job that are required by the COBOL compiler.  Without these the compiler won't be able to run.
 
 ## Understanding the Supplied COBOL
+The best way to understand how this program is used is to listed to [Jeff's video](https://developer.ibm.com/technologies/cobol/videos/intro-to-cobol-write-your-first-program).
+
 Now let's take a look at the supplied COBOL application.  A COBOL application is broken into divisions; you can see our code contains four divisions:
 1. Identification Divison - where we give our program a name (program-id) and indicate who wrote it.
 1. Environment Division - we use this division to detail information about the files we are going to be using in the application.
@@ -40,7 +42,9 @@ First we have SD which declares a Sort File Description Entry named `FXLIST-WORK
 
 `FX-REC` defines the record, which is made up of the three parts that appear on the following three lines with level 05 descriptors.
 
-Part of the power of COBOL's ability to work with data lies in its picture statements.  For an exhaustive list of ways you can declare data, visit the Enterprise COBOL Language Reference &&&&&&&&&****LINK NEEDED****.  Our first record field is name `FX-NAME-W` and it is declared to hold 50 alphanumeric characters.  That is followed by `FX-PRICE-W` which is a currency field, so its declaration is set up to be proceeded by a dollar sign, have comma thousands separators, and have two positions after the decimal place.  Finally, the record is filled with 17 blank characters called `FILLER`.
+Part of the power of COBOL's ability to work with data lies in its picture statements.  For an exhaustive list of ways you can declare data, visit the Enterprise COBOL Language Reference &&&&&&&&&****LINK NEEDED****.  Our first record field is name `FX-NAME-W` and it is declared to hold 50 alphanumeric characters.  That is followed by `FX-PRICE-W` which is a currency field, so its declaration is set up to have comma thousands separators and have two positions after the decimal place.  Finally, the record is filled with 17 blank characters called `FILLER`.  The other variables defined in the Data Division are set up a similar way.
+
+The real action takes place in the Procedure Division.  We print out a message on line 80 to show that our execution has started.  Since our input is coming in three separate files, we first need to combine the lists into a single list before we sort it.  We use a MERGE statement to do just that on line 81.  This statement takes the contents of the files defined by `FXLIST-B`, `FXLIST-M`, and `FXLIST-J` and stores them as a single list named `FXLIST-MERGE`.  Finally, we sort that merged list with a SORT statement in ascending order by the price in the `FX-PRICE-W` field, placing the sorted listed in `FXLIST-SORTED`.  The COBOL application writes that file before displaying a final message and ending execution.
 
 ## Instructions
 1. Copy the supplied files to your z/OS system<br>
