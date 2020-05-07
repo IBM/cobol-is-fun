@@ -28,6 +28,18 @@ Now let's take a look at the supplied COBOL application.  A COBOL application is
 1. Data Division - this is where you define variables.  In our case we use the file section to describe the fields in the associated files.
 1. Procedure Division - this is where we write our COBOL statements.
 
+Now that we have seen the different divisions in a COBOl application, let's take a closer look at some of the statements in our code.  In COBOL, variables are defined with a picture clause, which can be abbreviated as PIC.  Here is a copy of our first variable definition, starting on line 37:<br>
+```       SD  FXLIST-WORK.
+       01  FX-REC.
+           05 FX-NAME-W      PIC X(50).
+           05 FX-PRICE-W     PIC $$,$$$,$$9.99.
+           05 FILLER PIC X(17).
+```
+<br>
+First we have SD which declares a Sort File Description Entry named `FXLIST-WORK`.
+
+`FX-REC` defines the record, which is made up of the three parts that appear on the following three lines with level 05 descriptors.
+
 ## Instructions
 1. Copy the supplied files to your z/OS system<br>
 There are many ways to transfer the files from this Git repo to your z/OS system. You could do this directly to z/OS using a Git client running there, or you can use your PC as an intermediate between the Git repo and your z/OS system.
