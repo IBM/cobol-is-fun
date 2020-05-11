@@ -13,7 +13,7 @@ Before we get started working with these files, let's understand what they do.  
 - Execution is the act of actually running the executables.
 
 JCL might seem scary at first but it's not really all that complicated.  A JCL job is a script that tells z/OS to do something and what files to do it with.  For example, take a look at `compile.jcl`:
-- The first statement is called the job card and that is on line 18 of our file.  It gives the name of the job as COBOLCP and defines some environmentals.
+- The first statement is called the job card and that is on line 16 of our file.  It gives the name of the job as COBOLCP and defines some environmentals.
 - An EXEC statement tells z/OS to execute something and in the case of line 22, we are executing a program (PGM) named IGYCRCTL.  That's what the COBOL compiler is called.
 - Data define (DD) statements associate an object name with a file at a particular location.  In the case of line 45 of our compile job, we are connecting SYSIN with the file stored at IBMUSER.MYFIRST(COBOL).  SYSIN is the object that the COBOL compiler uses for its input.
 
@@ -28,7 +28,7 @@ Now let's take a look at the supplied COBOL application.  A COBOL application is
 3. Data Division - this is where you define variables.  In our case we use the file section to describe the fields in the associated files.
 4. Procedure Division - this is where we write our COBOL statements.
 
-Now that we have seen the different divisions in a COBOl application, let's take a closer look at some of the statements in our code.  In COBOL, variables are defined with a picture clause, which can be abbreviated as PIC.  Here is a copy of our first variable definition, starting on line 37:<br>
+Now that we have seen the different divisions in a COBOL application, let's take a closer look at some of the statements in our code.  In COBOL, variables are defined with a picture clause, which can be abbreviated as PIC.  Here is a copy of our first variable definition, starting on line 37:<br>
 ```
        SD  FXLIST-WORK.
        01  FX-REC.
@@ -42,7 +42,7 @@ First we have SD which declares a Sort File Description Entry named `FXLIST-WORK
 
 Part of the power of COBOL's ability to work with data lies in its picture statements.  For an exhaustive list of ways you can declare data, visit the Enterprise COBOL Language Reference's [PICTURE clause section](https://www.ibm.com/support/knowledgecenter/SS6SG3_6.3.0/lr/ref/rlddepic.html).  Our first record field is name `FX-NAME-W` and it is declared to hold 50 alphanumeric characters.  That is followed by `FX-PRICE-W` which is a currency field, so its declaration is set up to have comma thousands separators and have two positions after the decimal place.  Finally, the record is filled with 17 blank characters called `FILLER`.  The other variables defined in the Data Division are set up a similar way.
 
-The real action takes place in the Procedure Division.  We print out a message on line 80 to show that our execution has started.  Since our input is coming in three separate files, we first need to combine the lists into a single list before we sort it.  We use a MERGE statement to do just that on line 81.  This statement takes the contents of the files defined by `FXLIST-B`, `FXLIST-M`, and `FXLIST-J` and stores them as a single list named `FXLIST-MERGE`.  Finally, we sort that merged list with a SORT statement in ascending order by the price in the `FX-PRICE-W` field, placing the sorted listed in `FXLIST-SORTED`.  The COBOL application writes that file before displaying a final message and ending execution.  You can see the power of COBOL in thisd division: a lot of work is completed in just two statements.
+The real action takes place in the Procedure Division.  We print out a message on line 80 to shows that our execution has started.  Since our input is coming in three separate files, we first need to combine the lists into a single list before we sort it.  We use a MERGE statement to do just that on line 81.  This statement takes the contents of the files defined by `FXLIST-B`, `FXLIST-M`, and `FXLIST-J` and stores them as a single list named `FXLIST-MERGE`.  Finally, we sort that merged list with a SORT statement in ascending order by the price in the `FX-PRICE-W` field, placing the sorted listed in `FXLIST-SORTED`.  The COBOL application writes that file before displaying a final message and ending execution.  You can see the power of COBOL in this division: a lot of work is completed in just two statements.
 
 ## Flow
 Insert diagram here
