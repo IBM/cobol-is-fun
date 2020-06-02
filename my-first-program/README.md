@@ -6,6 +6,10 @@ This code pattern introduces you to a simple COBOL application which reads input
 ## Description
 There are two parts to this application.  First is the COBOL source code itself.  The second part is a set of three JCL jobs which need to be run to compile and build the application into a z/OS executable.  Let's look at each of these pieces.
 
+The COBOL application stored in a file named `fxsort.cbl` performs two main operations.  It reads input from three files and merges their contents into one list.  The second operation then sorts that in-memory list and writes the result to an output file.
+
+The supplied JCL can be used to compile, build, and execute the COBOL application.
+
 ## Understanding the Supplied COBOL
 The best way to understand how this program is used is to listed to [Jeff's video](https://developer.ibm.com/technologies/cobol/videos/intro-to-cobol-write-your-first-program).
 
