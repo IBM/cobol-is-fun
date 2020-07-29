@@ -47,6 +47,8 @@ A successful execution should look like:<br>
 ## Troubleshooting
 You may encounter a problem running this code based on the default character encoding (CCSID)  in your environment.  For example, you may encounter a IGZ0339W at run time on the second JSON parse because of the square brackets in the JSON.  This is the purpose of the `CBL CODEPAGE(DCBS)` command at the top of our program.  Your mileage may vary based on environmental configuration.
 
+Alternatively, you may need to add `CODEPAGE(1047)` to your compiler options depending on your default settings.
+
 ## Summary
 Parsing JSON in a COBOL application enables connecting back-end applications with today's front-end applications.  The JSON PARSE statement is an easy way to programatically consume a payload in an efficient, easy-to-code manner.
 
