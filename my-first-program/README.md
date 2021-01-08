@@ -49,7 +49,7 @@ JCL might seem scary at first but it's not really all that complicated.  A JCL j
 There's a bunch of other DD statements coded in our compile job that are required by the COBOL compiler.  Without these the compiler won't be able to run.
 
 ## Flow
-Insert diagram here
+![Flow Diagram](images/flow.png)
 
 ## Instructions
 1. Copy the supplied files to your z/OS system<br>
